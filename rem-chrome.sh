@@ -24,3 +24,12 @@ rem-chrome () {
 rem-vol-adj () {
 	ssh $user@$ip DISPLAY=:0 nohup amixer -D pulse sset Master $1 1>/dev/null 2>&1 &
 }
+
+rem-ps () {
+	ssh $user@$ip ps -f
+}
+
+rem-do () {
+	echo $1
+	ssh $user@$ip DISPLAY=:0 nohup $1 1>/dev/null 2>&1 &	
+}
